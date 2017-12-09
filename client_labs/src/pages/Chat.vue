@@ -1,9 +1,11 @@
 <script>
   import ChatUserList from './../components/chat/UserList'
+  import ChatWidget from './../components/chat/ChatWidget'
 
   export default {
     components: {
-      'chat-user-list': ChatUserList
+      'chat-user-list': ChatUserList,
+      'chat-widget': ChatWidget,
     },
     created() {
       this.$store.dispatch('setUserList')
@@ -20,7 +22,7 @@
         <chat-user-list></chat-user-list>
       </div>
       <div class="col-md-10" id="chat-content-wrapper">
-        show the chat content.
+        <chat-widget></chat-widget>
       </div>
     </section>
   </div>

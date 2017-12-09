@@ -30,14 +30,12 @@ const actions = {
       })
   },
   setCurrentChatUser: ({commit}, user) => {
-    commit('SET_CURRENT_CHAT_USER', user)
-
-    /*  let postData = {id: user.id}
-      axios.post(getUserConversationUrl, postData, {headers: getHeader()})
-        .then(response => {
-          commit('SET_CURRENT_CHAR_USER', user)
-          // commit('SET_CONVERSATION', response.data.data)
-        })*/
+    let postData = {id: user.id}
+    axios.post(getUserConversationUrl, postData, {headers: getHeader()})
+      .then(response => {
+        commit('SET_CURRENT_CHAT_USER', user)
+        commit('SET_CONVERSATION', response.data.data)
+      })
   }
 
 }

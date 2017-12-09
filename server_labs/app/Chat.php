@@ -36,6 +36,6 @@ class Chat extends Model
      */
     public function getReceiverAttribute()
     {
-        return User::where('id', $this->reveiver_id)->first();
+        return User::where('id', $this->receiver_id)->first();
     }
 }

@@ -10,7 +10,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <router-link  class="navbar-brand" :to="{name: 'dashboard'}">Practice</router-link>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->

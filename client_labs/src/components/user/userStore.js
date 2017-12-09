@@ -8,7 +8,7 @@ const mutations = {
   },
   CLEAR_AUTH_USER (state){
     state.authUser = null
-  }
+  },
 }
 
 const actions = {
@@ -17,7 +17,8 @@ const actions = {
   },
   clearUserObject: ({commit}) => {
     commit('CLEAR_AUTH_USER')
-  }
+  },
+
 }
 
 export default {

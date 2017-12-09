@@ -48,7 +48,7 @@
               <li><a href="#">Another action</a></li>
               <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a @click="handleLogout()">退出登录</a></li>
             </ul>
           </li>
         </ul>
@@ -58,11 +58,19 @@
 </template>
 <script>
   import {mapState} from 'vuex'
+
   export default {
     computed: {
       ...mapState({
         userStore: state => state.userStore
       })
     },
+    methods: {
+      handleLogout() {
+        this.$store.dispatch('clearUserObject') // 清空当前用户的状态
+        window.localStorage.removeItem('authUser') // 清空当前用户的本地存储
+        this.$router.push({name: 'home'}) // 跳转到登录页面
+      }
+    }
   }
 </script>

@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import axios from 'axios'
 import VueRouter from 'vue-router'
 import store from './store'
 
@@ -8,7 +7,8 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 
 Vue.config.productionTip = false
-window.axios = axios
+
+require('./bootstrap');
 
 Vue.component('app', App)
 

@@ -3,16 +3,18 @@ import axios from 'axios'
 import VueRouter from 'vue-router'
 
 import App from './App'
+import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 
 Vue.config.productionTip = false
-
 window.axios = axios
+
+Vue.component('app', App)
 
 Vue.use(VueRouter)
 
 const routes = [
-  {path: '/', component: App, name: 'home'},
+  {path: '/', component: Login, name: 'home'},
   {path: '/dashboard', component: Dashboard, name: 'dashboard', meta: {requiresAuth: true}},
 ]
 

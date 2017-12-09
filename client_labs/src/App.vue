@@ -6,10 +6,17 @@
 </template>
 <script>
   import TopMenu from './components/TopMenu'
+  import {mapState} from 'vuex'
 
   export default {
     created() {
-      console.log('app created.')
+      const userObj = JSON.parse(window.localStorage.getItem('authUser'))
+      this.$store.dispatch('setUserObject', userObj)
+    },
+    computed: {
+      ...mapState({
+        userStore: state => state.userStore
+      })
     },
     components: {
       'top-menu': TopMenu,

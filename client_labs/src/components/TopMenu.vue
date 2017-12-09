@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" v-if="userStore !== null && userStore.authUser">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -57,7 +57,12 @@
   </nav>
 </template>
 <script>
+  import {mapState} from 'vuex'
   export default {
-
+    computed: {
+      ...mapState({
+        userStore: state => state.userStore
+      })
+    },
   }
 </script>

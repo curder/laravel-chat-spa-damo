@@ -7,5 +7,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth:api', 'prefix' => 'v1'], function () {
-    Route::get('user-list','UserController@getUserList');
+    Route::get('user-list','UserController@getUserList'); // 获取系统用户列表
+
+    Route::post('get-user-conversation', 'ChatController@getUserConversationById'); // 获取用户会话
 });

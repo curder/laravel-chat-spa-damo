@@ -19,6 +19,6 @@ class UsersTableSeeder extends Seeder
         ];
 
         factory(App\User::class)->create($user1);
-
+        factory(App\User::class)->create();
     }
 }

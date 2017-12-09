@@ -5,6 +5,7 @@ import store from './store'
 import App from './App'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import Chat from './pages/Chat'
 
 Vue.config.productionTip = false
 
@@ -17,6 +18,7 @@ Vue.use(VueRouter)
 const routes = [
   {path: '/', component: Login, name: 'home'},
   {path: '/dashboard', component: Dashboard, name: 'dashboard', meta: {requiresAuth: true}},
+  {path: '/chat', component: Chat, name: 'chat', meta: {requiresAuth: true}},
 ]
 
 const router = new VueRouter({

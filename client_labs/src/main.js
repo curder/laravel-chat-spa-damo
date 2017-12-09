@@ -13,13 +13,26 @@ Vue.use(VueRouter)
 
 const routes = [
   {path: '/', component: App, name: 'home'},
-  {path: '/dashboard', component: Dashboard, name: 'dashboard'},
+  {path: '/dashboard', component: Dashboard, name: 'dashboard', meta: {requiresAuth: true}},
 ]
 
 const router = new VueRouter({
   mode: 'history',
   routes: routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    const authUser = JSON.parse(window.localStorage.getItem('authUser'))
+    if (authUser && authUser.access_token) {
+      next()
+    } else {
+      next({name: 'home'})
+    }
+  }
+  next()
+})
+
 
 new Vue({
   router,

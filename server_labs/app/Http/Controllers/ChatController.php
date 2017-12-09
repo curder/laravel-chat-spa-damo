@@ -15,7 +15,7 @@ class ChatController extends Controller
             ->whereIn('receiver_id', [$authUserId, $userId])
             ->orderBy('created_at', 'asc')
             ->get();
-        return reqponse([
+        return response([
             'data' => $chats
         ], Response::HTTP_OK);
     }

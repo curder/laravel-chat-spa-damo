@@ -13,6 +13,10 @@
     },
     methods: {
       handleAddChat() {
+        if (this.chatStore.currentChatUser === null) {
+          alert('请选择要聊天的用户')
+          return false;
+        }
         if (this.message !== null) {
           let postData = {
             'receiver_id': this.chatStore.currentChatUser.id,

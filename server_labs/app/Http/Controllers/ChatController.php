@@ -19,4 +19,17 @@ class ChatController extends Controller
             'data' => $chats
         ], Response::HTTP_OK);
     }
+
+    public function saveChat()
+    {
+        $chat = new Chat;
+        $chat->sender_id = request()->user()->id;
+        $chat->receiver_id = request('receiver_id');
+        $chat->chat = request('chat');
+        $chat->save();
+
+        return response([
+            'data' => $chat,
+        ], Response::HTTP_OK);
+    }
 }

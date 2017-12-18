@@ -51,7 +51,8 @@ cd client_labs && npm i && npm run dev
 
 写入`clientId`和`clientSecret`配置
 ```
-
+export const clientId = ''
+export const clientSecret = ''
 ```
 
 > 执行完上面的命令后，应该会在本地开启8080端口的前台预览。
